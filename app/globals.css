@@ -3,18 +3,65 @@
 @tailwind utilities;
 
 :root {
-  --background: #fafafa;
-  --foreground: #171717;
+  --background: #000000;
+  --foreground: #ffffff;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+/* iOS-style scrollbar */
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+/* iOS-style toggle */
+.ios-toggle {
+  @apply relative inline-flex h-8 w-14 items-center rounded-full transition-colors;
+}
+
+/* iOS-style card */
+.ios-card {
+  @apply bg-gray-900 rounded-2xl border border-gray-800;
+}
+
+/* iOS-style blur */
+.ios-blur {
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+}
+
+/* iOS-style button press effect */
+.ios-press {
+  transition: transform 0.1s ease, opacity 0.1s ease;
+}
+.ios-press:active {
+  transform: scale(0.97);
+  opacity: 0.8;
+}
+
+/* iOS-style input focus */
+input:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+}
+
+/* Smooth transitions */
+* {
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+  transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+  transition-duration: 0.2s;
+}
+
+/* Override for elements that shouldn't transition */
+input, textarea, select {
+  transition: none;
+}
+input:focus, textarea:focus, select:focus {
+  transition: box-shadow 0.2s ease;
 }
