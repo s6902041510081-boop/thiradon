@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { AuthProvider } from "@/components/AuthProvider";
 
 export const metadata: Metadata = {
   title: "Life Scheduler — จัดตารางเวลาชีวิต",
@@ -14,8 +13,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="th">
-      <body className="min-h-screen bg-black text-white antialiased">
-        <AuthProvider>{children}</AuthProvider>
+      <body className="min-h-screen bg-[#fafafa] text-gray-900 antialiased">
+        {children}
       </body>
     </html>
   );
